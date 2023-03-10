@@ -1,22 +1,21 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
-const Character = ({ family, fullName, imageUrl, title }) => {
+function Character(props) {
     return (
-        <div data-test='character-card' className="card-container">
-            <img data-test='character-image' src={imageUrl} alt={fullName} />
-            <div data-test='character-body' className="card-body">
-                <h1 data-test='character-content'>{title} {fullName} of {family}</h1>
+      <div className="component-character" data-test="component-character" key={props._key}>
+            <div className="character-name" data-test="char-name">
+                <h2>{props.name}</h2>
             </div>
-        </div>
+            <div className="character-image" data-test="char-img">
+                <img src="https://via.placeholder.com/150" alt="character" />
+            </div>
+            <ul className="char-list" data-test="char-list">
+                <li className="char-birth" data-test="char-birth">Date of Birth: {props.birth}</li>
+                <li className="char-death" data-test="char-death">Date of Death: {props.death}</li>
+                <li className="char-race" data-test="char-race">Race: {props.race}</li>
+                <li className="char-realm" data-test="char-realm">Realm: {props.realm}</li>
+                <li className="char-spouse" data-test="char-spouse">Spouse: {props.spouse}</li>
+            </ul>
+      </div>
     );
-};
+  }
 
-Character.propTypes = {
-    family: PropTypes.string,
-    fullName: PropTypes.string,
-    imageUrl: PropTypes.string,
-    title: PropTypes.string,
-}
-
-export default Character;
+  export default Character;
